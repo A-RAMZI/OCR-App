@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = 'http://192.168.1.2:8000/';
+const baseUrl = 'http://api-ocr-mobile.ipconnex.com/';
 
 export default axios.create({
     baseURL:baseUrl, 
