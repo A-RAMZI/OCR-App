@@ -44,9 +44,7 @@ export default function  ResultComponent ({navigation}){
                 "Invoice added with success ",
                 [ { text: "OK", onPress: () => console.log("OK Pressed") }]
             );
-            
             navigation.goBack();
-        
         }
         ).catch(function (error) {
             Alert.alert(
