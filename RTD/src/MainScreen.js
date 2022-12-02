@@ -7,7 +7,6 @@ import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import { useState } from 'react';
 import Loading from './Loading';
 import api from './ConnectApi';
-import axios from 'axios';
 export default function MainScreen({navigation}) {
   const [flashMode, setFlashMode] = useState(FlashMode.off);
   const [previewVisible, setPreviewVisible] = useState(false);
@@ -41,23 +40,9 @@ export default function MainScreen({navigation}) {
   }
   let __changeFlashMode=async()=>{
     setFlashMode(__nextFlashMode(flashMode));
-    getData();
+
   }
-  const getData = async () => {
-    api.get('')
-      .then(res => {
-       console.log(res.data);
-      })
-      .catch(err=>{
-        console.log(err);
-      });
-  };
-  let getU  = async ()=>{
-    const res = await axios.get('http://api-ocr-mobile.ipconnex.com/').then(
-      r=>{console.log(r)}
-    ).catch(e=>{console.log(e)})
-    console.log(res)
-  }  
+  
   let __takePicture = async () => {
     if (!camera || previewVisible ) return
     const photo = await camera.takePictureAsync({flashMode:FlashMode.auto})
